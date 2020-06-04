@@ -1,0 +1,16 @@
+{
+  "tilejson": "2.2.0",
+  "tiles": ["https://ubukawa.github.io/nat-tile/ne_test2/{z}/{x}/{y}.pbf"],
+  "name": "ne_test2",
+  "attribution": "test",
+  "maxzoom": 5,
+  "minzoom": 0,
+  "bounds": [-180,-50.00,180.00,60.00],
+  "center": [0,0,0],
+  "vector_layers": [{
+    "id": "test",
+    "description": "test",
+    "maxzoom": 5,
+    "minzoom": 0
+  }]
+}
