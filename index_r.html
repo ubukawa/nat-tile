@@ -16,16 +16,15 @@ body { margin: 0; top: 0; bottom: 0; width: 100%; }
 <script>
 map = new mapboxgl.Map({
   container: 'map', 
-  attributionControl: true, hash: true, maxZoom: 5,
+  attributionControl: true, hash: true, maxZoom: 4,
   style: {
     version: 8,
     sources: {
       v: {
         type: 'vector',
-        tiles: ['https://ubukawa.github.io/nat-tile/ne_test2/{z}/{x}/{y}.pbf'],
+        tiles: ['https://ubukawa.github.io/nat-tile/nat_rob4/{z}/{x}/{y}.pbf'],
         attribution: 'Natural Earth',
-        maxzoom: 5,
-        minzoom: 0
+        maxzoom: 0
       }
     },
     glyphs: 'font/{fontstack}/{range}.pbf',
@@ -34,14 +33,6 @@ map = new mapboxgl.Map({
       delay: 0
     },
     layers: [
-      {
-        id: 'back',
-        type: 'background',
-        layout: {'visibility':'visible'},
-        paint: {
-          'background-color': ['rgb', 146, 171, 230]
-        }
-      },
       {
         id: 'bnda',
         type: 'fill',
