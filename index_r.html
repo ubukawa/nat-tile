@@ -16,15 +16,16 @@ body { margin: 0; top: 0; bottom: 0; width: 100%; }
 <script>
 map = new mapboxgl.Map({
   container: 'map', 
-  attributionControl: true, hash: true, maxZoom: 4,
+  attributionControl: true, hash: true, maxZoom: 5,
   style: {
     version: 8,
     sources: {
       v: {
         type: 'vector',
-        tiles: ['https://ubukawa.github.io/nat-tile/nat_rob4/{z}/{x}/{y}.pbf'],
-        attribution: 'Natural Earth',
-        maxzoom: 0
+        tiles: ['https://ubukawa.github.io/nat-tile/ne_test2/{z}/{x}/{y}.pbf'],
+        attribution: 'Testing (Natural Earth data edited)',
+        maxzoom: 5,
+        minzoom: 0
       }
     },
     glyphs: 'font/{fontstack}/{range}.pbf',
@@ -34,14 +35,45 @@ map = new mapboxgl.Map({
     },
     layers: [
       {
+        id: 'back',
+        type: 'background',
+        layout: {'visibility':'visible'},
+        paint: {
+          'background-color': ['rgb', 146, 171, 230]
+        }
+      },
+      {
         id: 'bnda',
         type: 'fill',
         source: 'v',
         'source-layer': 'bnda',
         paint: {
-          'fill-color': ['rgb', 250, 250, 250]
+          'fill-color': ['rgb', 220, 213, 143]
         }
       },
+      {
+        id: 'bndl_intl',
+        type: 'line',
+        source: 'v',
+        'source-layer': 'bndl',
+        maxzoom: 4,
+        minzoom: 0,
+        filter: [
+        'all',
+        ['==', 'Bdytyp', 'International boundary']
+        ],
+        paint: {
+          'line-color': ['rgb', 92, 99, 102],
+          'line-dasharray': [6,1,1,1,1,1],
+          'line-width': 1
+        }
+      },
+
+
+
+
+
+
       {
         id: 'text',
         type: 'symbol',
@@ -53,9 +85,9 @@ map = new mapboxgl.Map({
             ['zoom'],
             ['get', 'ISO_A2'],
             2,
-            ['get', 'ISO_A3'],
+            ['get', 'ISO3CD'],
             4,
-            ['get', 'NAME']
+            ['get', 'MAPLAB']
           ],
           'text-font': ['sans'],
           'text-size': [
