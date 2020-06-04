@@ -35,6 +35,14 @@ map = new mapboxgl.Map({
     },
     layers: [
       {
+        id: 'back',
+        type: 'background',
+        layout: {'visibility':'visible'},
+        paint: {
+          'background-color': ['rgb', 146, 171, 230]
+        }
+      },
+      {
         id: 'bnda',
         type: 'fill',
         source: 'v',
