@@ -7,6 +7,9 @@ https://ubukawa.github.io/nat-tile/style.json
 index  
 https://ubukawa.github.io/nat-tile/index.html
 
+tile json (for QGIS)  
+https://ubukawa.github.io/nat-tile/ne_test2/ne-test.json  
+
 
 # vector tile schema (nat_rob4)
 - Geometries are polygons.
