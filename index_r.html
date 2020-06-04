@@ -68,12 +68,57 @@ map = new mapboxgl.Map({
           'line-width': 1
         }
       },
-
-
-
-
-
-
+      {
+        id: 'bndl_armis',
+        type: 'line',
+        source: 'v',
+        'source-layer': 'bndl',
+        maxzoom: 4,
+        minzoom: 0,
+        filter: [
+        'all',
+        ['==', 'Bdytyp', 'Armistice or International administrative line']
+        ],
+        paint: {
+          'line-color': ['rgb', 92, 99, 102],
+          'line-dasharray': [6,1],
+          'line-width': 1
+        }
+      },
+      {
+        id: 'bndl_other',
+        type: 'line',
+        source: 'v',
+        'source-layer': 'bndl',
+        maxzoom: 4,
+        minzoom: 0,
+        filter: [
+        'all',
+        ['==', 'Bdytyp', 'Other line of separation']
+        ],
+        paint: {
+          'line-color': ['rgb', 92, 99, 102],
+          'line-dasharray': [6,6],
+          'line-width': 1
+        }
+      },
+      {
+        id: 'bndl_special',
+        type: 'line',
+        source: 'v',
+        'source-layer': 'bndl',
+        maxzoom: 4,
+        minzoom: 0,
+        filter: [
+        'all',
+        ['==', 'Bdytyp', 'Special boundary line']
+        ],
+        paint: {
+          'line-color': ['rgb', 92, 99, 102],
+          'line-dasharray': [3,3],
+          'line-width': 1
+        }
+      },
       {
         id: 'text',
         type: 'symbol',
@@ -83,7 +128,7 @@ map = new mapboxgl.Map({
           'text-field': [
             'step',
             ['zoom'],
-            ['get', 'ISO_A2'],
+            ['get', 'ISO3CD'],
             2,
             ['get', 'ISO3CD'],
             4,
