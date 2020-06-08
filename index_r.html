@@ -22,9 +22,9 @@ map = new mapboxgl.Map({
     sources: {
       v: {
         type: 'vector',
-        tiles: ['https://ubukawa.github.io/nat-tile/ne_test2/{z}/{x}/{y}.pbf'],
+        tiles: ['https://ubukawa.github.io/nat-tile/ne_test3/{z}/{x}/{y}.pbf'],
         attribution: 'Testing (Natural Earth data edited)',
-        maxzoom: 5,
+        maxzoom: 3,
         minzoom: 0
       }
     },
@@ -129,9 +129,7 @@ map = new mapboxgl.Map({
             'step',
             ['zoom'],
             ['get', 'ISO3CD'],
-            2,
-            ['get', 'ISO3CD'],
-            4,
+            3,
             ['get', 'MAPLAB']
           ],
           'text-font': ['sans'],
